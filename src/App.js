@@ -1,31 +1,37 @@
-import React from "react";
-import "./style.css";
-import {useState, useRef, useEffect} from 'react'
+import React from 'react';
+import './style.css';
+import { useState, useRef, useEffect } from 'react';
 
 export default function App() {
-
   //getter y setter
-  const [name, setName] = useState('Ivan')
+  const [name, setName] = useState('Persona');
+  const [nameChanged, setNameChanged] = useState(false);
 
-//permite controlar que hace en todos los ciclos de vida del componente
-  useEffect(()=> {
-    //1 montaje o creacion
-
+  //permite controlar que hace en todos los ciclos de vida del componente
+  useEffect(() => {
+    //1 montaje o creacion, se ejecuta siempre una vez al inicio
+    setNameChanged(!nameChanged);
     //2 destruccion
-    return () => {}
+    return () => {};
 
-    //3 arreglo de dependencias, cuando cambien se ejecuta el 1
-  }, []
-  )
+    //3 arreglo de dependencias, cuando cambien se ejecuta nuevamente 1
+  }, [name]);
 
-  
+  const handleClick = () =>{
+    setName('Topo')
+  }
+ 
   return (
     <div>
       <h1>Hello {name}!</h1>
-      <p>Start editing to see some magic happen :)</p>
-      <button onClick={ () => setName('Topo')} >
-        Cambiar nombre
-      </button>
+      {nameChanged ? (
+        <p>
+          CLickea para cambiar el nombre y esconder este texto
+        </p>
+      ) : ( <p> Ejecutaste setName y la variable nameChanged con useEffect por dependencia con name </p> ) }
+
+      <button onClick={handleClick}> Cambiar nombre</button>
+
     </div>
   );
 }
