@@ -67,3 +67,14 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+h3 {
+  background-color: #141414 ; 
+  padding: 1rem;
+}
+
+.console {
+  padding: 0.2rem 1rem;
+  color:lime;
+  background-color: #141414 ; 
+}
