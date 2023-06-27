@@ -11,6 +11,9 @@ export default function App() {
   useEffect(() => {
     //1 montaje o creacion, se ejecuta siempre una vez al inicio
     setNameChanged(!nameChanged);
+    if (name != 'Persona' ) {
+      refButton.current.style.backgroundColor = 'blueviolet'
+    }
     //2 destruccion
     return () => {};
 
