@@ -1,6 +1,7 @@
 import React from 'react';
-import './style.css';
 import { useState, useRef, useEffect } from 'react';
+import './style.css';
+import UseMemo from './components/UseMemo';
 
 export default function App() {
   //USE STATE: getters y setters
@@ -11,7 +12,7 @@ export default function App() {
   useEffect(() => {
     //1 mount y update, se ejecuta siempre una vez al inicio
     setNameChanged(!nameChanged);
-    if (name != 'Persona') {
+    if (name == 'useRef') {
       refButton.current.style.backgroundColor = 'blueviolet';
     }
     //2 unmount - destruccion
@@ -28,6 +29,7 @@ export default function App() {
   };
 
   const handleRef = () => {
+    setName('useRef');
     refButton.current.click;
   };
 
@@ -55,16 +57,18 @@ export default function App() {
         </p>
       )}
       {/* con ref el boton ya no deberia andar y se puede ejecutar desde el 2do boton */}
-      <button onClick={handleClick} ref={refButton}>
-        {' '}
-        B1 Cambiar nombre
-      </button>
+      <button onClick={handleClick}>B1 Cambiar nombre</button>
       <h2>3. useRef </h2>
+      <p ref={refButton}>
+        Accede a elementos del DOM directamente, en este ejemplo cambiara el
+        fondo de este texto
+      </p>
       <p>
-        Accede a elementos del DOM directamente, uso en asincronismo, para
-        ejecutar cuando el componente este montado
+        Utilidad: en asincronismo, para ejecutar solo cuando el componente este
+        montado.
       </p>
       <button onClick={handleRef}> Ejecutar B1</button>
+      <UseMemo name={name} setName={setName} />
     </div>
   );
 }
