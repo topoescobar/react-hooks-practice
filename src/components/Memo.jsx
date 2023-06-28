@@ -10,14 +10,13 @@ export default function UseMemo(props) {
     setCount((c) => c + 1);
   };
   const addTodo = () => {
-    setTaskList((t) => [...t, 'New Todo']);
+    setTaskList((t) => [...t, 'Nueva tarea']);
   };
 
   return (
     <div>
-      <h2>3. useMemo </h2>
+      <h2>4. useMemo </h2>
       <p>
-        {' '}
         Guardar en caché un cálculo para no volver a ejecutar la funcion costosa
         cada vez que se re-renderiza el componente por un cambio de estado
       </p>
