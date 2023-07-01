@@ -18,7 +18,7 @@ export default function StateEffect({
       Variable y su setter
       <p>const [name, setName] = useState('Juancito');</p>
       <p className="console"> {'<p>Hello {name}! </p>  '} </p>
-      <h3>Hello {name}! </h3>
+      <h3 className="result">Hello {name}! </h3>
       <hr />
       <h2>2. useEffect</h2>
       <p>

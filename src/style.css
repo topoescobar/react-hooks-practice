@@ -70,9 +70,10 @@ button:focus-visible {
   }
 }
 
-h3 {
+.result {
   background-color: #141414;
-  padding: 1rem;
+  padding: 0.2rem 1rem;
+  margin: 0.8rem 0rem;
 }
 
 .console {
