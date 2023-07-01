@@ -5,6 +5,7 @@ import UseMemo from './components/Memo';
 import StateEffect from './components/StateEffect';
 import Ref from './components/Ref';
 import Callback from './components/Callback';
+import UseReducer from './components/use-reducer/UseReducer';
 
 export default function App() {
   //USE STATE: getters y setters
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <div>
+      <UseReducer />
       <StateEffect
         name={name}
         setName={setName}
