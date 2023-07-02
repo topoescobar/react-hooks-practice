@@ -45,7 +45,8 @@ export default function UseMemo(props) {
 
 const expensiveCalculation = (num) => {
   console.log('Calculating...');
-  for (let i = 0; i < 100000000; i++) {
+  let largeNum = 100; //usar 1000000000 sin useMemo para ver la diferencia
+  for (let i = 0; i < largeNum; i++) {
     num += 1;
   }
   return num;

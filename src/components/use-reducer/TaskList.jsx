@@ -6,7 +6,9 @@ export default function TaskList({ tasksArr }) {
       <div className="result">
         <ul>
           {tasksArr.map((task) => (
-            <li key={task.id}> {task.title} </li>
+            <li key={task.id}>
+              {task.id} {task.title}
+            </li>
           ))}
         </ul>
       </div>

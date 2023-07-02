@@ -3,13 +3,7 @@ import { useReducer } from 'react';
 import AddTask from './AddTask';
 import TaskList from './TaskList';
 
-const initialTasks = [
-  { id: 0, title: 'Visit Kafka Museum', done: true },
-  { id: 1, title: 'Watch a puppet show', done: false },
-  { id: 2, title: 'Lennon Wall pic', done: false },
-];
-let nextId = 3;
-
+// la funcion reducer puede venir de otro componente por props
 function tasksReducer(tasks, action) {
   switch (action.type) {
     case 'add': {
@@ -25,13 +19,21 @@ function tasksReducer(tasks, action) {
   }
 }
 
-export default function UseReducer() {
+//array para reducer
+const initialTasks = [
+  { id: 0, title: 'Visit Kafka Museum', done: true },
+  { id: 1, title: 'Watch a puppet show', done: false },
+  { id: 2, title: 'Lennon Wall pic', done: false },
+];
+let maxId = initialTasks.length;
+
+export default function reducerComponent() {
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
   const addTask = (title) => {
     dispatch({
       type: 'add',
-      id: nextId++,
+      id: maxId++,
       title: title,
     });
   };
