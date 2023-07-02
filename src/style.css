@@ -81,3 +81,7 @@ button:focus-visible {
   color: lime;
   background-color: #141414;
 }
+
+li {
+  list-style: circle;
+}

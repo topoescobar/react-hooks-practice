@@ -12,9 +12,18 @@ function tasksReducer(tasks, action) {
         {
           id: action.id,
           title: action.title,
-          donde: false,
+          done: false,
         },
       ];
+    }
+    case 'modify': {
+      return tasks.map((t) => {
+        if (t.id === action.task.id) {
+          return action.task;
+        } else {
+          return t;
+        }
+      });
     }
   }
 }
@@ -31,10 +40,18 @@ export default function reducerComponent() {
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
   const addTask = (title) => {
+    console.log(title);
     dispatch({
       type: 'add',
       id: maxId++,
       title: title,
+    });
+  };
+
+  const editTask = (modTask) => {
+    dispatch({
+      type: 'modify',
+      task: modTask,
     });
   };
 
@@ -49,7 +66,7 @@ export default function reducerComponent() {
 
       <h2>Lista de tareas</h2>
       <AddTask addTask={addTask} />
-      <TaskList tasksArr={tasks} />
+      <TaskList tasksArr={tasks} editTask={editTask} />
     </div>
   );
 }

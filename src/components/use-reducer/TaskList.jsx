@@ -1,13 +1,14 @@
 import React from 'react';
+import Task from './Task';
 
-export default function TaskList({ tasksArr }) {
+export default function TaskList({ tasksArr, editTask }) {
   return (
     <div>
       <div className="result">
         <ul>
           {tasksArr.map((task) => (
             <li key={task.id}>
-              {task.id} {task.title}
+              <Task task={task} editTask={editTask} />
             </li>
           ))}
         </ul>
