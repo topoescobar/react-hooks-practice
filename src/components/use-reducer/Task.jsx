@@ -4,7 +4,7 @@ export default function Task({ task, editTask }) {
   const handleCheckbox = (event) => {
     let modTask = {
       ...task,
-      done: event.target.value,
+      done: event.target.checked,
     };
     editTask(modTask);
     console.log('task ', task);
