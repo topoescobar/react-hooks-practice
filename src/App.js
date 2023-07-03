@@ -27,7 +27,6 @@ export default function App() {
 
   return (
     <div>
-      <UseReducer />
       <StateEffect
         name={name}
         setName={setName}
@@ -37,6 +36,7 @@ export default function App() {
       <Ref setName={setName} refButton={refButton} />
       <UseMemo name={name} setName={setName} />
       <Callback />
+      <UseReducer />
     </div>
   );
 }

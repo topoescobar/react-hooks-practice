@@ -19,6 +19,7 @@ export default function Ref(props) {
         montado.
       </p>
       <button onClick={handleRef}> Ejecutar B1</button>
+      <hr />
     </div>
   );
 }

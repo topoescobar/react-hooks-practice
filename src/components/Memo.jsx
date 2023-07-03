@@ -39,6 +39,7 @@ export default function UseMemo(props) {
         <button onClick={increment}>+</button>
         {calculation}
       </div>
+      <hr />
     </div>
   );
 }
